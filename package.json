@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "prettier types.ts",
-        "build": "rm -f types.ts && gql-gen"
+        "codegen": "rm -f types.ts && gql-gen"
     },
     "author": "",
     "license": "ISC",
