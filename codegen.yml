@@ -1,0 +1,8 @@
+override: true
+schema: schema.graphql
+documents:
+    - query.graphql
+generates:
+    types.ts:
+        - typescript-client:
+              noNamespaces: true

@@ -1,0 +1,17 @@
+query TopMenu {
+    menuItems(where: { location: TOP_MENU }) {
+        edges {
+            node {
+                connectedObject {
+                    __typename
+                    ... on Page {
+                        title
+                    }
+                    ... on Post {
+                        title
+                    }
+                }
+            }
+        }
+    }
+}

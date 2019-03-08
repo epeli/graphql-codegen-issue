@@ -1,0 +1,17 @@
+{
+  "name": "graphql-codegen-typescript-bug",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "graphql": "^14.1.1",
+    "graphql-code-generator": "^0.18.0",
+    "graphql-codegen-typescript-client": "^0.18.0",
+    "prettier": "^1.16.4"
+  }
+}
