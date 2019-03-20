@@ -1,14 +1,16 @@
-query TopMenu {
-    menuItems(where: { location: TOP_MENU }) {
+query Posts {
+    posts {
         edges {
             node {
-                connectedObject {
-                    __typename
-                    ... on Page {
-                        title
-                    }
-                    ... on Post {
-                        title
+                id
+                title
+                content
+                tags {
+                    edges {
+                        node {
+                            name
+                            slug
+                        }
                     }
                 }
             }
