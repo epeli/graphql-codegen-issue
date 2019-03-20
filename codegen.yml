@@ -4,6 +4,5 @@ documents:
     - query.graphql
 generates:
     types.ts:
-        - typescript-common
-        - typescript-client:
-              noNamespaces: true
+        - typescript
+        - typescript-operations
