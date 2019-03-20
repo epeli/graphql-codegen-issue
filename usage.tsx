@@ -1,6 +1,6 @@
 import { useQuery } from "react-apollo-hooks";
 import { oc } from "ts-optchain";
-import { PostsQuery, PostsTags } from "./types";
+import { PostsQuery } from "./types";
 import { notEmpty } from "./utils";
 
 export function PostList() {
@@ -22,6 +22,12 @@ export function PostList() {
         </div>
     );
 }
+
+type ArrayType<T> = T extends Array<infer V> ? V : never;
+
+type PostsTags = NonNullable<
+    ArrayType<NonNullable<PostsQuery["posts"]>["edges"]>["node"]
+>["tags"];
 
 function TagList(props: { tags: PostsTags }) {
     const tags = oc(props.tags)
