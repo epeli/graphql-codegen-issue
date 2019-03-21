@@ -10,7 +10,8 @@ export function PostList() {
     const posts = oc(res)
         .data.posts.edges([])
         .filter(notEmpty)
-        .map(edge => edge.node);
+        .map(edge => edge.node)
+        .filter(notEmpty);
 
     return (
         <div>
@@ -27,14 +28,15 @@ export function PostList() {
 type ArrayType<T> = T extends Array<infer V> ? V : never;
 
 type PostsTags = NonNullable<
-    ArrayType<NonNullable<PostsQuery["posts"]>["edges"]>["node"]
+    NonNullable<ArrayType<NonNullable<PostsQuery["posts"]>["edges"]>>["node"]
 >["tags"];
 
 function TagList(props: { tags: PostsTags }) {
     const tags = oc(props.tags)
         .edges([])
         .filter(notEmpty)
-        .map(edge => edge.node);
+        .map(edge => edge.node)
+        .filter(notEmpty);
 
     return (
         <div>
