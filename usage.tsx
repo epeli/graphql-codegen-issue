@@ -10,13 +10,14 @@ export function PostList() {
     const posts = oc(res)
         .data.posts.edges([])
         .filter(notEmpty)
-        .map(edge => edge.node);
+        .map(edge => edge.node)
+        .filter(notEmpty);
 
     return (
         <div>
             {posts.map(post => (
                 <div>
-                    <title>{post.title}</title>
+                    <title>{post.title || ""}</title>
                     <TagList tags={post.tags} />
                 </div>
             ))}
@@ -28,7 +29,8 @@ function TagList(props: { tags: PostsTags }) {
     const tags = oc(props.tags)
         .edges([])
         .filter(notEmpty)
-        .map(edge => edge.node);
+        .map(edge => edge.node)
+        .filter(notEmpty);
 
     return (
         <div>
