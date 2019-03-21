@@ -1,3 +1,14 @@
+fragment Tags on Post {
+    tags {
+        edges {
+            node {
+                name
+                slug
+            }
+        }
+    }
+}
+
 query Posts {
     posts {
         edges {
@@ -5,14 +16,7 @@ query Posts {
                 id
                 title
                 content
-                tags {
-                    edges {
-                        node {
-                            name
-                            slug
-                        }
-                    }
-                }
+                ...Tags
             }
         }
     }

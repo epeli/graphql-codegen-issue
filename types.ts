@@ -6445,6 +6445,27 @@ export type WritingSettings = {
     /** Convert emoticons like :-) and :-P to graphics on display. */
     useSmilies?: Maybe<Scalars["Boolean"]>;
 };
+export type TagsFragment = { __typename?: "Post" } & {
+    tags: Maybe<
+        { __typename?: "PostToTagConnection" } & {
+            edges: Maybe<
+                Array<
+                    Maybe<
+                        { __typename?: "PostToTagConnectionEdge" } & {
+                            node: Maybe<
+                                { __typename?: "Tag" } & Pick<
+                                    Tag,
+                                    "name" | "slug"
+                                >
+                            >;
+                        }
+                    >
+                >
+            >;
+        }
+    >;
+};
+
 export type PostsQueryVariables = {};
 
 export type PostsQuery = { __typename?: "RootQuery" } & {
@@ -6458,33 +6479,8 @@ export type PostsQuery = { __typename?: "RootQuery" } & {
                                 { __typename?: "Post" } & Pick<
                                     Post,
                                     "id" | "title" | "content"
-                                > & {
-                                        tags: Maybe<
-                                            {
-                                                __typename?: "PostToTagConnection";
-                                            } & {
-                                                edges: Maybe<
-                                                    Array<
-                                                        Maybe<
-                                                            {
-                                                                __typename?: "PostToTagConnectionEdge";
-                                                            } & {
-                                                                node: Maybe<
-                                                                    {
-                                                                        __typename?: "Tag";
-                                                                    } & Pick<
-                                                                        Tag,
-                                                                        | "name"
-                                                                        | "slug"
-                                                                    >
-                                                                >;
-                                                            }
-                                                        >
-                                                    >
-                                                >;
-                                            }
-                                        >;
-                                    }
+                                > &
+                                    TagsFragment
                             >;
                         }
                     >
