@@ -1,3 +1,4 @@
+import React from "react";
 import { useQuery } from "react-apollo-hooks";
 import { oc } from "ts-optchain";
 import { PostsQuery, PostsTags } from "./types";
